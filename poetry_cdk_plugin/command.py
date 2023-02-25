@@ -31,6 +31,15 @@ class BaseCDKCommand(EnvCommand):
         return self.env.execute("cdk", *self.cdk_cli_args)
 
 
+class SynthCommand(BaseCDKCommand):
+    name = "cdk synth"
+    description = "Synth a CDK application"
+
+    @property
+    def cdk_cli_args(self) -> [str]:
+        return ["synth"]
+
+
 class DeployCommand(BaseCDKCommand):
     name = "cdk deploy"
     description = "Deploy a CDK application"

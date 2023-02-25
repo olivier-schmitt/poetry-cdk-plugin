@@ -17,10 +17,10 @@
 from poetry.console.commands.command import Command
 from poetry.plugins.application_plugin import ApplicationPlugin
 
-from poetry_cdk_plugin.command import DeployCommand, DestroyCommand
+from poetry_cdk_plugin.command import SynthCommand, DeployCommand, DestroyCommand
 
 
 class CDKApplicationPlugin(ApplicationPlugin):
     @property
     def commands(self) -> list[type[Command]]:
-        return [DeployCommand, DestroyCommand]
+        return [SynthCommand, DeployCommand, DestroyCommand]
