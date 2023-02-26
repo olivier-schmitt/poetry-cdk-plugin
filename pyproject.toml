@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-cdk-plugin"
-version = "0.1.4"
+version = "0.1.5"
 description = "CDK commands for Poetry"
 authors = ["Olivier Schmitt <ursusossforever@gmail.com>"]
 readme = "README.md"

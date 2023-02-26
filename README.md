@@ -11,8 +11,9 @@ This plugin removes the need to manage SHELL commands to perform basic CDK CLI c
 
 ## Prerequisites
 
-- Python ^3.9
-- Poetry ^1.3
+- [CDK CLI](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)
+- [Python](https://www.python.org/) ^3.9
+- [Poetry](https://python-poetry.org/) ^1.3
 
 ## Installation
 
@@ -24,3 +25,8 @@ From a valid CDK codebase root directory, where Poetry is used, type:
 - ```poetry cdk synth```: to run cdk synth of your CDK application
 - ```poetry cdk deploy```: to run cdk deploy of your CDK application (without approval)
 - ```poetry cdk destroy```: to run cdk destroy of your CDK application (with force option)
+
+
+## Roadmap
+
+- Add a ```cdk lambda package``` command to provide a ZIP for [CDK Lambda construct](https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.aws_lambda/README.html) and its ```from_asset``` feature
