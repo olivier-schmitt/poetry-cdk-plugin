@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-cdk-plugin"
-version = "0.1.5"
+version = "0.1.6"
 description = "CDK commands for Poetry"
 authors = ["Olivier Schmitt <ursusossforever@gmail.com>"]
 readme = "README.md"
@@ -16,6 +16,8 @@ keywords = ["CDK", "poetry"]
 [tool.poetry.dependencies]
 python = "^3.9"
 poetry = "^1.3"
+pytest = "^7.2.2"
+coverage = "^7.2.1"
 
 [build-system]
 requires = ["poetry-core"]

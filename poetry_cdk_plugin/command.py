@@ -13,7 +13,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+import os
+import subprocess
 
 from cleo.io.io import IO
 from poetry.console.commands.env_command import EnvCommand
@@ -28,7 +29,23 @@ class BaseCDKCommand(EnvCommand):
         return []
 
     def execute(self, io: IO) -> int:
-        return self.env.execute("cdk", *self.cdk_cli_args)
+        venv_error = (
+            f"Can not execute {self.cdk_cli_args} because command can not run in"
+            " virtual env"
+        )
+        command = ["cdk"] + self.cdk_cli_args
+        try:
+            if self.env.is_venv():
+                # Is supposed to be a VirtualEnv
+                env = dict(self.env.get_temp_environ())
+                exe = subprocess.Popen(command, env=env, cwd=os.getcwd())
+                exe.communicate()
+                return exe.returncode
+            else:
+                io.write_error_line(venv_error)
+                return -1
+        except NotImplementedError:
+            io.write_error_line(venv_error)
 
 
 class SynthCommand(BaseCDKCommand):
